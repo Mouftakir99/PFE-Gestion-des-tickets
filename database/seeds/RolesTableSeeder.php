@@ -9,15 +9,16 @@ class RolesTableSeeder extends Seeder
     {
         $roles = [
             [
-                'id'    => 1,
                 'title' => 'Admin',
             ],
             [
-                'id'    => 2,
                 'title' => 'Agent',
             ],
         ];
 
-        Role::insert($roles);
+        foreach ($roles as $key => $role) {
+            Role::query()->updateOrCreate($role);
+        }
+
     }
 }

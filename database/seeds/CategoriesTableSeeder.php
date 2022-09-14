@@ -19,8 +19,7 @@ class CategoriesTableSeeder extends Seeder
 
         foreach($categories as $category)
         {
-            Category::create([
-                'name'  => $category,
+            Category::query()->updateOrCreate(['name'  => $category],[
                 'color' => $faker->hexcolor
             ]);
         }

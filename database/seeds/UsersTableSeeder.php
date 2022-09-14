@@ -7,37 +7,26 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
-        $users = [
-            [
-                'id'             => 1,
-                'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
-                'password'       => bcrypt("password"),
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 2,
-                'name'           => 'Agent 1',
-                'email'          => 'agent1@agent1.com',
-                'password'       => bcrypt("password"),
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 3,
-                'name'           => 'Agent 2',
-                'email'          => 'agent2@agent2.com',
-                'password'       => bcrypt("password"),
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 4,
-                'name'           => 'Agent 3',
-                'email'          => 'agent3@agent3.com',
-                'password'       => bcrypt("password"),
-                'remember_token' => null,
-            ],
-        ];
 
-        User::insert($users);
+        User::query()->updateOrCreate(['email'=> 'agent3@agent3.com'],[
+            'name' => 'Agent 3',
+            'password' => bcrypt("password")
+        ]);
+
+                    User::query()->updateOrCreate(['email'=> 'agent2@agent2.com'],[
+            'name' => 'Agent 2',
+            'password' => bcrypt("password")
+        ]);
+
+                    User::query()->updateOrCreate(['email'=> 'agent1@agent1.com'],[
+            'name' => 'Agent 1',
+            'password' => bcrypt("password"),
+        ]);
+
+                    User::query()->updateOrCreate(['email'=> 'admin@admin.com'],[
+            'name' => 'Admin',
+            'password' => bcrypt("password"),
+        ]);
+
     }
 }

@@ -19,8 +19,7 @@ class PrioritiesTableSeeder extends Seeder
 
         foreach($priorities as $priority)
         {
-            Priority::create([
-                'name'  => $priority,
+            Priority::query()->updateOrCreate(['name'  => $priority],[
                 'color' => $faker->hexcolor
             ]);
         }

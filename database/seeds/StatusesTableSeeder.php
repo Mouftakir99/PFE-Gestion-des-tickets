@@ -12,17 +12,12 @@ class StatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
         $statuses = [
             'Open', 'Closed'
         ];
 
-        foreach($statuses as $status)
-        {
-            Status::create([
-                'name'  => $status,
-                'color' => $faker->hexcolor
-            ]);
-        }
+        Status::query()->updateOrCreate([ 'name'  => 'Open'],[  'color' => '#02ea2a' ]);
+        Status::query()->updateOrCreate([ 'name'  => 'Closed'],['color' => '#db0b0b']);
+
     }
 }
